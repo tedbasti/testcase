@@ -1,6 +1,6 @@
 name: Build raspberry Image
 
-on: [workflow_dispatch]
+on: [push,workflow_dispatch]
 
 jobs:
   # This workflow contains a single job called "build"
@@ -39,3 +39,9 @@ jobs:
       
     - name: Create raspberry image
       run: cd packer-builder-arm && sudo packer build boards/raspberry-pi/raspbian.json
+      
+    - name Upload image to github
+      uses: actions/upload-artifact@v2
+      with:
+        name: raspberry-image.img
+        path: packer-builder-arm/raspberry-pi.img
