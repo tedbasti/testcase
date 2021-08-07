@@ -32,10 +32,10 @@ jobs:
       run: pwd
       
     - name: Get to dependencies
-      run: go mod download
+      run: cd packer-builder-arm && go mod download
       
     - name: Go build
-      run: go build
+      run: cd packer-build-arm && go build
       
     - name: Create raspberry image
-      run: sudo packer build boards/raspberry-pi/raspbian.json
+      run: sudo packer build packer-build-arm/boards/raspberry-pi/raspbian.json
