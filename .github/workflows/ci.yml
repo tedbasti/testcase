@@ -18,9 +18,15 @@ jobs:
       with:
         go-version: 1.16
       id: go
+    
+    - name: Print pwd before checkout
+      run: pwd
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v1
+      
+    - name: Print pwd after checkout
+      run: pwd
 
     - name: Get to dependencies
       run: go mod download
