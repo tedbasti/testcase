@@ -38,4 +38,4 @@ jobs:
       run: cd packer-builder-arm && go build
       
     - name: Create raspberry image
-      run: sudo packer build packer-builder-arm/boards/raspberry-pi/raspbian.json
+      run: cd packer-builder-arm && sudo packer build boards/raspberry-pi/raspbian.json
