@@ -28,6 +28,9 @@ jobs:
     - name: Switch to packer-build-arm directory
       run: cd packer-builder-arm
       
+    - name: Checkout pwd
+      run: pwd
+      
     - name: Get to dependencies
       run: go mod download
       
