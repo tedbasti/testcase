@@ -35,7 +35,7 @@ jobs:
       run: cd packer-builder-arm && go mod download
       
     - name: Go build
-      run: cd packer-build-arm && go build
+      run: cd packer-builder-arm && go build
       
     - name: Create raspberry image
-      run: sudo packer build packer-build-arm/boards/raspberry-pi/raspbian.json
+      run: sudo packer build packer-builder-arm/boards/raspberry-pi/raspbian.json
