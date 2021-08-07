@@ -3,15 +3,14 @@ name: Build raspberry Image
 on: [push,workflow_dispatch]
 
 jobs:
-  # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Update apt
       run: sudo apt-get update -qq
       
-    - name: Install packer and qemu-user-static
-      run: sudo apt-get install -y packer qemu-user-static
+    - name: Install packer
+      run: sudo apt-get install -y packer
 
     - name: Set up Go 1.16
       uses: actions/setup-go@v1
@@ -31,7 +30,7 @@ jobs:
     - name: Checkout pwd
       run: pwd
       
-    - name: Get to dependencies
+    - name: Get go dependencies
       run: cd packer-builder-arm && go mod download
       
     - name: Go build
